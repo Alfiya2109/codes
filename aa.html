@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .envelope {
+            background-color: #ff6b6b;
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .letter {
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .heart {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+
+        .card {
+            padding: 8px;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff6b6b;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .card.open {
+            opacity: 1;
+            transform: translate(-50%, -20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope">
+        <div class="letter">
+            <span class="heart">♥</span>
+            <p>For you</p>
+        </div>
+        <div class="card" id="card">
+        </div>
+    </div>
+
+    <script>
+        const envelope = document.querySelector('.envelope');
+        const card = document.getElementById('card');
+
+        envelope.addEventListener('click', () => {
+            card.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

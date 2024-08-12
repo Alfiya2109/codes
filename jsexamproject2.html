@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Test</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Form</h2>
+                <form name="myF" onsubmit="return validateForm()">
+                    <table class="table">
+                        <tr>r
+                            <td>
+                                <label for="name">Name : </label>
+                            </td>
+                            <td><input type="text" name="name" id="name" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="email">Email</label></td>
+                            <td><input type="email" name="email" id="email" required></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="csType">Customer Type</label>
+                            </td>
+                            <td>
+                                <select name="csType" id="csType" onchange="changeCT()">
+                                    <option value=""></option>
+                                    <option value="existing">Existing</option>
+                                    <option value="new">New</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="amt" style="display: none;">
+                            <td><label for="amount">Amount</label></td>
+                            <td><input type="text" name="amount" id="amount"></td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" class="btn btn-success" onclick="submitForm()">Submit</button>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col-md-4" id="exC">
+                <h2>Existing Customers</h2>
+                <table class="table" id="existingTable">
+                    <thead>
+                        
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="col-md-4" id="neC">
+                <h2>New Customers</h2>
+                <table class="table" id="newTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //target elements
+        document.addEventListener('DOMContentLoaded', () => {
+            let csType = document.getElementById("csType");
+            let amountRow = document.getElementById("amt");
+
+            csType.addEventListener('change', () => {
+                if (csType.value === 'existing') {
+                    amountRow.style.display = '';
+
+                } else {
+
+                    amountRow.style.display = 'none';
+
+                }
+            });
+        });
+        
+
+        //create function of submit buttond
+
+        function submitForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let csType = document.getElementById("csType").value;
+            let amount = document.getElementById("amount").value;
+
+
+            //when button is clicked on existing
+            if (csType === 'existing') {
+                let existingTableBody = document.getElementById("existingTable").getElementsByTagName("tbody")[0];
+                let newRow = existingTableBody.insertRow();
+                newRow.innerHTML = `<td>${name}</td><td>${email}</td><td>${amount}</td><td><button class="btn btn-danger" onclick="deleteRow(this)">Delete</button></td>`;
+                //when button is clicked on new
+            } else if (csType === 'new') {
+                let newTableBody = document.getElementById("newTable").getElementsByTagName("tbody")[0];
+                let newRow = newTableBody.insertRow();
+                newRow.innerHTML = `<td>${name}</td><td>${email}</td><td><button class="btn btn-danger" onclick="deleteRow(this)">Delete</button></td>`;
+            }else{
+                document.forms["myF"].reset();
+            document.getElementById("amt").style.display = 'none';
+
+            };
+
+         
+        };
+
+        //
+        function deleteRow(button) {
+            let row = button.parentNode.parentNode;
+            
+            row.parentNode.removeChild(row);
+
+        };
+    </script>
+</body>
+
+</html>

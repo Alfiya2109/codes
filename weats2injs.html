@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Dropdown Example</title>
+</head>
+<body>
+
+    <h2>Simple Dynamic Dropdowns</h2>
+    
+    <form>
+        <label for="state">state:</label>
+        <select id="state" name="state" onchange="populateCities()">
+            <option value="">Select State</option>
+            <option value="MAHA">Maharashtra</option>
+            <option value="UP">Uttar Pradesh</option>
+	    <option value="MP">Madhya Pradesh</option>
+           
+        </select>
+
+        <br><br>
+
+        <label for="city">City:</label>
+        <select id="city" name="city">
+            <!-- Cities will be dynamically populated based on the selected state -->
+        </select>
+
+        <br><br>
+
+ <input type="submit" value="Submit">
+    </form>

@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+} */
+
+/* Q58 */
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: #3498db;
+    border-radius: 50%;
+}
+
+    </style>
+</head>
+
+<p>This is a sample paragraph.</p>
+<p>Another paragraph here.</p>
+
+<!-- Q32 -->
+<p id="p1">this is pen!</p>
+
+<!-- Q33 -->
+<p id="para1" >Paragraph 1:- Red</p>
+<p id="para2">Paragraph 2:- Blue</p>
+<p id="para3">Paragraph 3:- Green</p>
+
+
+<!-- Q37 -->
+
+
+    <title>Simple Calculator</title>
+
+    <h1>Simple Calculator</h1>
+    <input type="text" id="num1" placeholder="Enter first number">
+    <input type="text" id="num2" placeholder="Enter second number">
+    <br>
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Subtract</button>
+    <button onclick="mul()">Multiply</button>
+    <button onclick="div()">Divide</button>
+    <h2 id="result">Result: </h2>
+
+
+    <!-- Q38 -->
+
+    <but id="but">Clicked Me !</but>
+
+    <!-- Q39 -->
+
+    <form action="">
+
+        <input type="radio" name="button" value=" Credit Card"> Credit Card
+        <br>
+
+        <input type="radio" name="button" value="PayPal"> PayPal
+        <br>
+
+        <input type="radio" name="button" value="Bitcoin"> Bitcoin
+        <br>
+
+        <button type="button" onclick="paymentmode()">submit</button>
+
+    </form><br><br><br><br>
+
+    <!-- Q40 -->
+
+    <h1>Countdown Timer</h1>
+    <span id="timer">10:00</span> <!-- Display remaining time here -->
+    <br><br>
+    <button id="stopButton">Stop</button>
+    <button id="startButton">Start</button>
+    <span id="display"></span><br><br><br>
+
+    <!-- Q42 -->
+
+    <h1>Array Insertion</h1>
+    <input type="text" id="value" placeholder="Enter value">
+    <select id="insertoptions">
+        <option value="insertfirst">Insert at Beginning</option>
+        <option value="insertlast">Insert at End</option>
+    </select>
+    <button onclick="insertvalue()">Insert</button>
+    <div id="displayarrayoutput"></div>
+
+    <!-- Q43 -->
+
+    Enter your value :
+    <input type="text" id="inputvalue">
+
+    <button onclick="checkvalue()">Check Value :</button><br><br>
+
+    <!-- Q44 -->
+
+    enter your task :
+    <input type="text" name="" id="taskitems"><br>
+
+    <button onclick="addtask()">Addtask</button><br>
+
+    <ul id="tasklist"></ul>
+
+    <!-- Q45 -->
+
+     <p id="arrays"></p>
+    <button id="createDynamicList">Create List Array</button>
+    <ul id="list"></ul>
+
+    <!-- Q55 -->
+
+    <p id="para">This is Paragraph!</p>
+
+    <!-- Q58 -->
+    <div class="circle"></div>
+    <button onclick="changecolor">Click me!</button>
+
+
+
+    
+
+
+
+
+
+    <script>
+
+        //Q`1
+        // // let console = "ConsoleMassage";
+        // console.log("ConsoleMassage");
+
+
+        // // let alert = ("alertMassage");
+        // alert("alertMassage");
+
+
+        // let userconfirm = confirm("confirmMassage");
+        // let massage = userconfirm ?"click ok":"click cancle";
+
+
+        // document.body.innerHTML+= "<p>"+"A massage is print in console" +"</p>";
+        
+        // document.body.innerHTML+= "<p>"+"A massage is print in alert" +"</p>";
+        
+        // document.body.innerHTML+= "<p>"+"A massage is print in confirm" +"</p>";
+
+
+        // Q2
+
+        // Displaying a Quote:
+        // document.write("<h2>Quote of the Day</h2>");
+        // document.write("<blockquote>")
+        //     document.write(" Be yourself; everyone else is already taken. – Oscar Wilde.")
+        // document.write("</blockquote>");
+
+        // // Displaying an Interesting Fact:
+        // document.write("<h2>Interesting Fact.</h2>");
+        // document.write("<p>")
+        //     document.write("Tag for this statement Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.")
+        // document.write("</p>");
+
+
+
+        // Q3
+        // let color = prompt("what is your favorit color?");
+        // console.log("its your favorit color "+ color +" ! ");
+
+
+        // Q4
+        // let n1 = prompt("Enter your name?");
+        // let n2 = prompt("Enter your name?");
+        // let n3 = prompt("Enter your name?");
+        // let n4 = prompt("Enter your name?");
+        // let n5 = prompt("Enter your name?");
+
+
+        // document.write("<p>"+n1 + "</p>");
+        // document.write("<p>"+n2 + "</p>");
+        // document.write("<p>"+n3 + "</p>");
+        // document.write("<p>"+n4 + "</p>");
+        // document.write("<p>"+n5 + "</p>");
+
+
+        // Q5
+        //  let uservalue = prompt("Enter your value!");
+
+        //  if(!isNaN(uservalue)){
+        //     console.log("this is a number")
+        //  }else{
+        //     console.log("this is not a number")
+        //  };
+
+
+        // Q6
+
+        // let number = prompt("Enter your number?");
+
+        // let convertintonumber = parseFloat(number);
+
+        // if(!isNaN(convertintonumber)){
+        //     console.log("converted into number" + convertintonumber)
+        // }else{
+        //     console.log("enter vaild number" + convertintonumber)
+        // };
+
+
+        // Q7
+        // let string = "hello , alfiya !";
+
+        // let trimstring = string.trim();
+
+        // console.log("original string " + string + "  ");
+        // console.log ("trimstring " + trimstring +" ");
+
+
+        // Q8
+        // let lowercase = prompt("Enter a lowercase string!");
+
+        // let upercase = lowercase.toUpperCase();
+
+        // console.log("lowercase input is " + lowercase );
+        // console.log("upercase input is " + upercase);
+
+
+
+        // Q9
+        // let s1 = "alfiya";
+        // let s2 ="Alfiya";
+
+        // let uppercases1  = s1.toUpperCase();
+        // let uppercases2 = s2.toUpperCase();
+
+        // if(uppercases1===uppercases2){
+        //     console.log("this is equal both string(case-insensitive)");
+
+        // }else{
+        //     console.log("this is not equal both string(case-insensitive)")
+        // };
+
+
+        //Q10
+        // let iqra = "IQRA TECHNOLOGY";
+
+        // document.write(iqra);
+        // document.write("<br>");
+        // document.write("<br>");
+         
+        // let length = iqra.length;
+
+        // document.write("this is a length "  + length + "<br><br>");
+
+        // let index = iqra.lastIndexOf("O");
+        // document.write("this is a index of string "+ index);
+
+        // alert("this is legth of string is "+length + "\nthis is a index of string "+index);
+
+
+        //Q11
+        //  let oldstring = "we are learning HTML & CSS";
+
+        //  let newstring = oldstring.replace("HTML & CSS"," JavaScript ");
+
+        //  document.write("this is old string " + oldstring +"<br>");
+        //  document.write("this is new string "+ newstring + "<br>");
+
+        //  let length = newstring.length;
+        //  document.write("this is a length of new string is : "+ length);
+
+        // Q12
+        // let para = document.querySelector("p");
+
+        // if(para){
+        //     let text = para.textContent;
+
+        //     let upper  = text.toUpperCase();
+
+        //     console.log(text);
+        //     console.log(upper);
+
+        // }else{
+        //     console.log("no its not a p tag!");
+        // };
+
+
+        // Q13
+
+        // let user = prompt("enter a string!");
+
+        // let slice = user.slice(0,4);
+
+        // console.log("its original string "+ user);
+        // console.log("tis slice string "+ slice);
+        // console.log("slice with length " + slice.length);
+
+
+        // Q14
+
+        // let name = "john";
+        // let age =25;
+        // let city = "New york";
+
+
+        // let complete = `hello! i am ${name}.
+        // my age is ${age}.
+        // my city name is ${city}.
+        // Thankyou!`;
+
+        // console.log(complete);
+
+
+        // Q15
+
+        // let usser = prompt("please enter your name!");
+
+        // let massage = `Welcome mr or mrs ${usser}`;
+
+        //  console.log(massage);
+
+        //Q16
+
+        // let a = prompt("enter your firts number");
+        // let b = prompt("enter your secound number");
+
+        // if(a>b){
+        //     console.log("a is greater than b");
+        // }else if(b>a){
+        //     console.log("b is greater than a");
+        // }else{
+        //     console.log("a and b is equal!");
+        // };
+
+        // Q17
+        // let num1 =parseFloat(prompt("enter your firts number"));
+        //  let num2 =parseFloat (prompt("enter your secound number"));
+
+        //  let addition = num1+num2;
+        //  let subtraction = num1-num2;
+        //  let multiplication = num1*num2;
+        //  let division = num1/num2;
+        //  let remainder = num1%num2;
+
+        //  document.write("<h5> addition: " + addition + "</h5>");
+         
+        //  document.write("<h5> subtraction : " + subtraction + "</h5>");
+
+         
+        //  document.write("<h5> multiplication : " + multiplication + "</h5>");
+
+         
+        //  document.write("<h5> division : " + division + "</h5>");
+         
+        //  document.write("<h5> remainder : " + remainder + "</h5>");
+
+        // Q18
+        // let x =10;
+
+        // x += 5;
+        // console.log(" After += operation " + x);
+
+        // x -= 3;
+        // console.log(" After -= operation " + x);
+
+        // x*= 2;
+        // console.log(" After *= operation " + x);
+
+        // x/=4;
+        // console.log(" After /= operation " + x);
+
+
+        // Q19
+        // let myVariable = 5;
+        // myVariable++;
+        // console.log("After ++ operation : " + myVariable);
+
+       
+        // myVariable--;
+        // console.log("After -- operation : " + myVariable);
+
+        // Q20
+        // let usser = parseFloat(prompt("enter your number!"));
+
+        // if(usser>=10 && usser<=20){
+        //     console.log("the number is within the specified range : " + usser);
+        // }else{
+        //     console.log("the number is not  within the specified range : " + usser);
+        // };
+
+        // Q21
+        // let main = prompt("enter your main string");
+
+        // let substring =prompt("enter your substring  string");
+
+        // if(main.includes(substring)){
+        //     console.log(" this substring is found in a main string !");
+        // }else{
+        //     console.log(" this substring is not found in a main string !");
+
+        // };
+
+        // Q22
+        // let usser1 = prompt("enter the first string");
+        // let usser2 = prompt( "enter the second string.");
+
+        // if(usser1.length > usser2.length){
+        //     console.log("usser1 string length is longer to usser2 string!");
+        // }else if(usser1.length < usser2.length){
+        //     console.log("usser2 string length is longer to usser1 string!");
+        // }else{
+        //     console.log("usser1 string and usser2 string are equal!");
+        // };
+
+        // Q23
+        // let age =parseFloat(prompt("enter your age to vote!"));
+
+        // if(age>18){
+        //     console.log("You are eligible to vote");
+        // }else{
+        //     console.log("You are not eligible to vote");
+        // };
+
+        // Q24
+        // let usser = parseFloat(prompt("enter your number!"));
+
+        // switch(Math.sign(usser)){
+        //     case 1:
+        //         console.log("positive");
+        //         break;
+        //         case -1:
+        //             console.log("negative");
+        //             break;
+        //             case 0:
+        //                 console.log("zero");
+        //                 break;
+        //                 default:
+        //                     console.log("invalid input");
+        // };
+
+        // Q25
+
+        // let month = parseFloat(prompt("enter your number on the bases of moths"));
+
+        // switch(month){
+        //     case 1:
+        //         document.write("this is months of :  jan ")
+        //         break;
+        //         case 2:
+        //         document.write("this is months of :   feb")
+        //         break;
+        //         case 3:
+        //         document.write("this is months of : march " )
+        //         break;
+        //         case 4:
+        //         document.write("this is months of : april " );
+        //         break;
+        //         case 5:
+        //         document.write("this is months of :may " )
+        //         break;
+        //         case 6:
+        //         document.write("this is months of : jun" )
+        //         break;
+        //         case 7:
+        //         document.write("this is months of : july" )
+        //         break;
+        //         case 8:
+        //         document.write("this is months of : augst")
+        //         break;
+        //         case 9:
+        //         document.write("this is months of : sept")
+        //         break;
+        //         case 10:
+        //         document.write("this is months of : oct")
+        //         break;
+        //         case 11:
+        //         document.write("this is months of : nov")
+        //         break;
+        //         case 12:
+        //         document.write("this is months of : dec")
+        //         break;
+        //         default:
+        //             document.write("incorrect input!");
+        // };
+
+        // Q26
+        // let first = parseFloat(prompt("enter your firts number"));
+        // let secound = parseFloat(prompt("enter your secound number"));
+
+        // let operater = prompt("choose one operater (+,-,*,/,%)");
+
+        // switch(operater){
+        //     case "+":
+        //         document.write("this is your calculation " + (first +secound))
+        //         break;
+        //         case "-":
+        //         document.write("this is your calculation " + (first-secound))
+        //         break;
+        //         case "*":
+        //         document.write("this is your calculation " + (first*secound))
+        //         break;
+        //         case "/":
+        //         document.write("this is your calculation " + (first/secound))
+        //         break;
+        //         case "%":
+        //         document.write("this is your calculation " + (first%secound))
+        //         break;
+
+        //         default:
+        //             document.write("incorrect input");
+        // };
+
+        // Q27  
+
+        // function isEven(number){
+
+        //     if(number %2 === 0){
+        //         return "this number is even!";
+        //     }else{
+        //         return "this number is odd!";
+        //     }
+        // };
+
+        // let resultForEven = isEven(4);
+        // let resultForOdd = isEven(7);
+
+        // console.log(resultForEven);
+        // console.log(resultForOdd);
+
+
+        // Q28
+        // function findLargestNumber( num1, num2 , num3){
+        //     if(num1 >= num2 && num1 >=num3){
+        //         return num1;
+        //     }else if(num2 >= num1 && num2 >= num3){
+        //         return num2;
+        //     }else{
+        //         return num3;
+        //     }
+        // };
+
+
+        // let LargestNumber = findLargestNumber(12,6,8);
+
+        // console.log("the largest number is " + LargestNumber);
+
+        // Q29
+
+        // function validatePassword(password){
+        //     if(password.length>=8){
+        //         if(password.includes("@") || password.includes("$")|| password.includes("&")){
+        //             return "vaild";
+        //         }else{
+        //           return "invaild (missing special character)";
+        //         }
+        //     }else{
+        //         return "invail (less then 8 characters )";
+        //     }
+        // }
+
+
+        // let resultForValidPassword = validatePassword("Secure@123");
+        // let resultForInvalidPassword = validatePassword("WeakPwda");
+
+        // console.log(resultForValidPassword);
+        // console.log(resultForInvalidPassword);
+
+        // Q30
+//         function countVowels(input) {
+//     let vowelCount = 0; // Initialize vowelCount to 0
+//     for (let i = 0; i < input.length; i++) {
+//         let char = input[i].toLowerCase(); // Convert to lowercase to handle both cases
+//         if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
+//             vowelCount++;
+//         }
+//     }
+//     return vowelCount;
+// }
+
+// let user = prompt("Enter your string");
+// let result = countVowels(user);
+
+// document.write("The number of vowels in \"" + user + "\" is " + result);
+
+// Q31
+
+// let para = document.getElementById("p1");
+
+// para.style.backgroundColor = "blue";
+
+// Q32
+
+// let para = document.getElementById("p1");
+
+// let usser = prompt("choose one border type (Dotted, Solid, Dashed) ");
+
+// para.style.border = usser;
+
+// Q33
+
+// let para1 = document.getElementById("para1");
+// let para2 = document.getElementById("para2");
+// let para3 = document.getElementById("para3");
+
+// para1.style.color ="red";
+// para2.style.color ="blue";
+// para3.style.color ="green";
+
+// Q34
+
+// let para = document.getElementById("p1");
+
+// let ussertext = prompt("enter a color name for text! ");
+// let usserbackground = prompt("enter a background color ! ");
+
+// para.style.color = ussertext;
+// para.style.backgroundColor = usserbackground;
+
+// Q35
+
+// function createandappendElement(elementName, textContent) {
+//     // Create the element
+//     const element = document.createElement(elementName);
+
+//     // Set the class name
+//     element.className = "mydiv";
+
+//     // Set the text content
+//     element.textContent = textContent;
+
+//     // Append the element to the body
+//     document.body.appendChild(element);
+// }
+
+// // Prompt the user for element name and text content
+// const userElementName = prompt("Enter your element name like ('div', 'p', 'h1')");
+// const userTextContent = prompt("Enter some text to be inside the element");
+
+// // Call the function to create and append the element
+// createandappendElement(userElementName, userTextContent);
+
+
+// Q36
+
+// let mydiv = document.createElement("div");
+
+// mydiv.className = "mydiv";
+
+// mydiv.textContent = "this is pen ! ";
+
+// mydiv.style.color = "white";
+// mydiv.style.backgroundColor = "lightblue";
+// mydiv.style.padding = "15px";
+// mydiv.style.border = "3px solid blue";
+// mydiv.style.textAlign = "center";
+
+
+// document.body.appendChild(mydiv);
+
+// Q37
+
+// function getvalue(){
+//     let num1 = parseFloat(document.getElementById("num1").value);
+//     let num2 = parseFloat(document.getElementById("num2").value);
+
+//     return [num1, num2];
+// }
+
+// function add(){
+//     let [num1, num2] = getvalue();
+//     let result = num1 + num2;
+//     displayResult(result);
+// }
+
+// function sub(){
+//     let [num1, num2] = getvalue();
+//     let result = num1 - num2;
+//     displayResult(result);
+// }
+
+// function mul(){
+//     let [num1, num2] = getvalue();
+//     let result = num1 * num2;
+//     displayResult(result);
+// }
+
+// function div(){
+//     let [num1, num2] = getvalue();
+//     let result = num1 / num2;
+//     displayResult(result);
+// }
+
+// function displayResult(result){
+//     document.getElementById("result").textContent = "Result: " + result;
+
+
+// };
+
+// Q38
+
+// function changetext(){
+//     let button = document.getElementById("but");
+//     button.textContent = "Clicked !";
+// };
+
+// document.getElementById("but").addEventListener('click',changetext);
+
+// Q39
+
+// function paymentmode() {
+//     let select = document.querySelector("input[name='button']:checked");
+
+//     if(select){
+//         alert("Payment mode: " + select.value);
+//     } else {
+//         alert("Select payment mode!")
+//     }
+// };
+
+// Q40
+
+        //  let timer = document.getElementById("timer");
+        // let startButton = document.getElementById("startButton");
+        // let stopButton = document.getElementById("stopButton");
+        // let display = document.getElementById("display");
+        // let countdownTime = 10; // Countdown time in seconds (initial value)
+        // let time; // Variable to store the interval ID
+
+        // function startCountdown() {
+        //     clearInterval(time); // Clear any existing interval
+
+        //     time = setInterval(() => {
+        //         if (countdownTime <= 0) {
+        //             clearInterval(time);
+        //             display.textContent = "Time is up!";
+        //             timer.textContent = "00:00";
+        //         } else {
+        //             countdownTime--;
+        //             updateTimerDisplay();
+        //         }
+        //     }, 1000);
+        // }
+
+        // function updateTimerDisplay() {
+        //     let minutes = Math.floor(countdownTime / 60);
+        //     let seconds = countdownTime % 60;
+        //     timer.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        // }
+
+        // stopButton.addEventListener("click", () => {
+        //     clearInterval(time);
+        // });
+
+        // startButton.addEventListener("click", () => {
+        //     countdownTime = 10; // Reset countdown time if needed
+        //     startCountdown();
+        // });
+
+        // updateTimerDisplay(); // Initialize timer display
+
+        // Q41
+
+        // let number = [];
+
+        // for(let i = 0; i<= 5; i++){
+        //     let usser = prompt("enter your number!");
+        //     number.push(parseInt(usser));
+        // };
+
+        // for(let i = 0; i < number.length ; i++){
+        //     if(number[i] %3 === 0 ){
+        //         console.log(number[i]);
+        //     }
+        // };
+
+//         // Q42
+//         let array = [];
+
+// function insertvalue() {
+//     let value = document.getElementById("value").value;
+//     let insertoptions = document.getElementById("insertoptions").value;
+
+//     if (insertoptions === "insertfirst") {
+//         array.unshift(value);
+//     } else if (insertoptions === "insertlast") {
+//         array.push(value);
+//     }
+
+//     displayarray();
+// }
+
+// function displayarray() {
+//     let displayarrayoutput = document.getElementById("displayarrayoutput");
+//     displayarrayoutput.textContent = "Array: " + array.join(', ');
+// }
+
+//   Q43
+
+// let array = [10, 20, 30, 40, 50];
+
+// function checkvalue() {
+//     let value = document.getElementById("inputvalue").value;
+
+//     let exist = array.includes(parseInt(value));
+
+//     if (exist) {
+//         console.log("Array: " + array.join(", "));
+
+//     } else {
+//         console.log("false");
+
+//     }
+// };
+
+// Q44
+
+// function addtask(){
+// let taskitems = document.getElementById("taskitems");
+// let text = taskitems.value;
+
+
+// if(text.trim() !== ""){
+//     let newtask = document.createElement("li");
+//     newtask.textContent = text;
+
+//     document.getElementById("tasklist").appendChild(newtask);
+
+//     taskitems = "";
+
+// }
+// };
+
+// Q45
+
+// document.addEventListener("DOMContentLoaded",function(){
+//     let fruits = ["apple", "banana", "cherry", "date", "fig"];
+
+//     document.getElementById("arrays").textContent = "Array : " + fruits.join(',');
+
+//     document.getElementById("createDynamicList").addEventListener('click',function(){
+//         createDynamicList(fruits);
+//     });
+
+//     function createDynamicList(array){
+
+//         let arraylist = document.getElementById("list");
+
+//         arraylist.innerHTML =  " ";
+
+//         for(let i = 0; i < array.length; i++){
+//             let listitems = document.createElement("li");
+//             listitems.textContent = array[i];
+//             arraylist.appendChild(listitems);
+//         }
+//     }
+// });
+
+// Q46
+
+// "use strict"
+// class Rectangle{
+//     constructor( width,height){
+//         this.width = width;
+//         this.height = height;
+
+
+//     }
+
+//     calculateArea(){
+//         return this.width *this.height;
+//     }
+// };
+
+// let ans1 = prompt("enter a width .");
+// let ans2 = prompt("enter a heigth .");
+
+// let ans = new Rectangle(ans1,ans2);
+
+// let result = ans.calculateArea();
+
+// console.log( "this a area of rectangle " + result + ".");
+
+
+// 47
+
+// class Shape {
+
+// }
+
+// class Square extends Shape{
+//     constructor(sidelength ){
+//         super()
+//         this.sidelength = sidelength;
+//     }
+//     CalculateArea(){
+//     return this.sidelength * this.sidelength
+// }
+// };
+
+
+
+// let usser = parseFloat(prompt("enter the side length of the square"));
+
+// let result = new Square (usser);
+
+// let final = result.CalculateArea();
+// console.log("the area of square with side length " + usser + " is :" + final);
+
+// Q48
+
+// class  StudentMarks{
+//     constructor(){
+//         this.totalmarks = 0 ;
+//         this.numberofsubjects = 0;
+//     }
+
+//     EnterMarks(subjectMarks){
+//         this.totalmarks += subjectMarks;
+//         this.numberofsubjects ++ ;
+
+//     }
+
+//     CalculateAverage(){
+//         return this.totalmarks / this.numberofsubjects;
+
+//     }
+
+// };
+
+// Q49
+
+// let fruitinformation= new Map();
+
+// fruitinformation.set("apply","red");
+// fruitinformation.set("mango","red");
+// fruitinformation.set("banana","red");
+// fruitinformation.set("papaya","red");
+
+// console.log("fruit information.");
+
+// for(let [fruit,information] of fruitinformation){
+//     console.log(`${fruit}: ${information}`);
+// };
+
+// Q50
+
+// let uniqueNumbers = new Set();
+
+
+// let numbersarrays = [5,10,15,20, 15, 20,25,30,35, 5,40];
+
+// numbersarrays.forEach(Number =>{
+//     uniqueNumbers.add(Number);
+// });
+
+// console.log("unique numbers in the arrays" );
+// console.log(Array.from(uniqueNumbers));
+// console.log("this is a length of array " + length.numbersarrays)
+
+// Q51
+
+// function sumNumbers(...numbers){
+//     let sum = numbers.reduce((sum ,num) => sum + num , 0);
+
+//     return sum;
+
+// };
+// let totalsum = (5,10,15,20);
+// console.log("sum" , totalsum);
+
+
+// Q52
+
+// try{
+//     console.log(undefinevariables);
+// }catch(error){
+//     console.error("Error",error.message)
+// }finally{
+//     console.log("i am finally ! ")
+// };
+
+// Q53
+
+// function Divide(a,b){
+//     try{
+//         if(b===0){
+//         throw new Error("division by zero is not allowed !  ")
+//     }
+//     return a/b;
+// } catch (error){
+//     console.error("Error",error.message);
+// }
+// };
+
+// console.log(Divide(10,2));
+// console.log(Divide(5,0));
+
+// Q54
+
+// function timeoutMessage (message){
+//     setTimeout(() => {
+//         console.log(message);
+//     }, 5000);
+// }
+
+// timeoutMessage("custom message after 5 seconds");
+
+// Q55
+
+// function colorchange(){
+//     let para = document.getElementById("para");
+
+//     setTimeout(() => {
+//         para.style.color = "red";
+//     }, 2000);
+// }
+
+// window.onload= colorchange;
+
+// Q56
+
+// function PrintHello (){
+//     document.write("Hello Again !" + "<br>");
+// }
+
+// setInterval(PrintHello,1000);
+
+// Q57
+
+// function countdown(){
+//     let countdown = 10;
+
+//     let interval =  setInterval(() =>{
+//         document.write(countdown + "   ");
+
+//         countdown--;
+
+//         if(countdown<1){
+//             clearInterval(interval);
+//         }
+// },1000);
+// };
+// countdown();
+
+// Q58
+
+// function changecolor(){
+//     let circle = document.getElementById("circle");
+
+//     circle.classList.add("colorchange")
+
+//     setTimeout(() => {
+//         circle.classList.remove("colorchange");
+//     }, 1000);
+// };
+
+
+// Q59
+
+// function checked(values){
+//     return new Promise((resolve,reject) =>{
+//         if(value > 0){
+//             resolve("promise is resolve !");
+//         }else{
+//             reject("promise is reject !");
+//         };
+//     });
+// };
+
+// checked();
+
+// Q60
+
+// function delayedResponse(message,delaytime ){
+//     return new Promise((resolve) =>{
+
+//         setTimeout(() =>{
+//             resolve(message);
+//         },delaytime)
+//     });
+// };
+
+// delayedResponse("hello " , 2000)
+// .then((result)=>{
+//     console.log(result);
+// });
+
+
+// Q61
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

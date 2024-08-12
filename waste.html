@@ -1,0 +1,101 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append List Item</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addItemBtn">Add Item</button>
+
+
+
+    <script>
+
+
+
+
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        //     document.getElementById("addItemBtn").addEventListener('click', () => {
+        //         setTimeout(() => {
+        //             let item = document.createElement("li");
+        //             item.textContent = `Item ${document.getElementById("myList").children.length + 1}`;
+        //             document.getElementById("myList").appendChild(item);
+        //         }, 2000);
+        //     });
+        // });
+
+        function me(){
+            let count = 3;
+            let set = setInterval(() => {
+                if(count<10){
+                    let itmes = document.createElement("li");
+            itmes.textContent = `Item ${count + 1}`;
+            document.getElementById("myList").appendChild(itmes);
+            count++;
+        }else{
+            clearInterval(set);
+        }
+    }, 2000);
+ }
+//  me();
+
+
+
+
+
+
+    </script>
+</body>
+</html> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Fields</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="field1" placeholder="Field 1">
+        <button type="button" id="addFieldBtn">Add Field</button>
+    </form>
+
+    <script>
+
+
+
+document.getElementById("addFieldBtn").addEventListener('click',()=>{
+   let form =  document.getElementById('myForm');
+   let input = document.getElementsByTagName('input').length;
+
+    let  button = document.createElement("input");
+    button.type = "text";
+    button.name=`field ${input + 1}`;
+    button.placeholder=`field ${input + 1}`;
+    form.appendChild(button);
+
+});   
+
+// Question 2: Toggle Visibility
+// Create a button and a <div> with id toggleDiv. Write JavaScript code so that when the button is clicked, it toggles the visibility (show/hide) of the <div>.
+
+    
+
+
+
+ </script>
+</body>
+</html>
+
+
+
+
+
+

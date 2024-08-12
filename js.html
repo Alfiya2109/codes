@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Countdown Timer</title>
+    <style>
+        #timer {
+            font-size: 2em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>OTP Countdown Timer</h1>
+<div id="otp">Your OTP is: <span id="otpValue"></span></div>
+<div id="timer">02:00</div>
+
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var interval = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            clearInterval(interval);
+            alert("OTP has expired!");
+        }
+    }, 1000);
+}
+
+function generateOTP() {
+    var otp = Math.floor(100000 + Math.random() * 900000);
+    document.getElementById('otpValue').textContent = otp;
+    var twoMinutes = 60 * 2,
+        display = document.querySelector('#timer');
+    startTimer(twoMinutes, display);
+}
+
+// Generate OTP and start countdown on page load
+window.onload = function () {
+    generateOTP();
+};
+</script>
+
+</body>
+</html>

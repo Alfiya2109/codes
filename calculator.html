@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculetor make</title>
+    <h3 class="h3">Created By Alfiya khan</h3>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+};
+
+.div1 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+};
+.h3{
+    text-align: center;
+    justify-content: center;
+};
+
+
+form {
+    display: flex;
+    flex-direction: column;
+};
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.5em;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+};
+
+.css1, .css2, .css3, .css4 {
+    display: flex;
+};
+
+.button {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color:pink;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid rgb(105, 101, 101);
+};
+
+.button:hover {
+    background-color:rgb(214, 66, 91);
+};
+
+.css4 .button {
+    background-color:rgb(184, 99, 184);
+};
+
+.css4 .button:hover {
+    background-color:rgb(100, 26, 100);
+};
+
+    </style>
+</head>
+
+<body>
+   
+    <form name="formc">
+    <div class="div1">
+        
+        <input type="text" name="display">
+        
+        <div class="css1">
+            <input type="button" value="AC" class="button" onclick="formc.display.value =''">
+            <input type="button" value="DE" class="button" onclick="formc.display.value = display.value.toString().slice(0,-1)">
+            <input type="button" value="." class="button" onclick="formc.display.value +='.'">
+            <input type="button" value="/" class="button" onclick="formc.display.value +='/'">
+        </div>
+        <div class="css1">
+            <input type="button" value="7" class="button" onclick="formc.display.value +='7'">
+            <input type="button" value="8" class="button" onclick="formc.display.value +='8'">
+            <input type="button" value="9" class="button" onclick="formc.display.value +='9'">
+            <input type="button" value="*" class="button" onclick="formc.display.value +='*'">
+            
+        </div>
+        <div class="css2">
+            <input type="button" value="4" class="button" onclick="formc.display.value +='4'">
+            <input type="button" value="5" class="button" onclick="formc.display.value +='5'">
+            <input type="button" value="6" class="button" onclick="formc.display.value +='6'">
+            <input type="button" value="-" class="button" onclick="formc.display.value +='-'">
+        </div>
+        <div class="css3">
+            <input type="button" value="1" class="button" onclick="formc.display.value +='1'">
+            <input type="button" value="2" class="button" onclick="formc.display.value +='2'">
+            <input type="button" value="3" class="button" onclick="formc.display.value +='3'">
+            <input type="button" value="+" class="button" onclick="formc.display.value +='+'">
+        </div>
+        <div class="css4">
+            <input type="button" value="0" class="button" onclick="formc.display.value +='0'">
+            <input type="button" value="00" class="button" onclick="formc.display.value +='00'">
+            <input type="button" value="=" class="button" onclick="display.value = eval(display.value)">
+        </div>
+    </form>
+
+
+
+
+
+ </div>
+</body>
+</html>

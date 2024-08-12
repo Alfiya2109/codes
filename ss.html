@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: background-color 1s;
+        }
+
+        @keyframes backgroundChange {
+            from { background-color: white; }
+            to { background-color: black; }
+        }
+
+        .hearts {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: float 5s linear infinite;
+        }
+
+        .hearts::before,
+        .hearts::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .hearts::before {
+            top: -25px;
+            left: 0;
+        }
+
+        .hearts::after {
+            top: 0;
+            left: -25px;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh) rotate(45deg); }
+            to { transform: translateY(-100vh) rotate(45deg); }
+        }
+
+        #btn {
+            display: block;
+            margin-top: 250px;
+            margin-left: 600px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color:red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #btn:hover {
+            background-color: black;
+        }
+
+        #par {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Click Here</button>
+    <p id="par"></p>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            document.body.style.backgroundColor = "black";
+
+            for (let i = 0; i < 40; i++) {
+                let heart = document.createElement('div');
+                heart.className = 'hearts';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 2) + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 25000);
+            }
+
+            content();
+        });
+
+        function content() {
+            let p = document.getElementById('par');
+            // p.textContent = "Sorry ! Sorry ! Sorry !";
+            p.style.color = "white";
+        };
+    </script>
+</body>
+</html>

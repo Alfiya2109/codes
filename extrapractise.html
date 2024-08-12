@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p id="para">this is paragraphs</p>
+  <button id="btn">click here!</button>
+  <p id="hide">i am hide!</p>
+  <button id="hidebtn">clicked here</button>
+
+  <ul id="list">
+    <li id="it1">Item 1</li>
+    <li id="it2">Item 2</li>
+    <li id="it3">Item 3</li>
+    <li id="it4">Item 4</li>
+   </ul>
+    <script>
+        // Question: Double each number in an array using the map function.
+        // Output: [2, 4, 6, 8]
+        const numbers = [1, 2, 3, 4,11];
+        var output =   numbers.map((num)=>{
+          return  num+num;
+        });
+        console.log(output);
+
+
+        // Question: Count the occurrences of each string in an array using the reduce function.
+        // Output: { apple: 3, banana: 2, orange: 1 }
+        const strings = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+      var output = strings.reduce((str,res)=>{
+        if(!str[res]){
+            str[res]=[];
+        }
+        str[res].push(res);
+        return str;
+        },{});
+       console.log(output);
+
+      //  Question: Write a script that flattens a nested array of arrays into a single array. Use the reduce function to achieve this.
+      const nestedArray = [[1, 2, 3], [4, 5], [6, 7, 8, 9]];
+      // Output: [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let neasted = nestedArray.reduce((ne,ar)=>{
+        return ne.concat(ar);
+      });
+      console.log(neasted);
+
+
+      // Given an array of objects representing students, each with a name and score property, write a script that returns an array of names of students who scored more than 70. Use the filter and map functions to achieve this.
+         const students = [
+            { name: "Alice", score: 85 },
+            { name: "Bob", score: 65 },
+            { name: "Charlie", score: 75 },
+            { name: "Dave", score: 60 },
+          ];
+        // Output: ["Alice", "Charlie"];
+        let per = students.filter((s)=>{
+          return s.score>70;
+        });
+        let name = per.map((name)=>{
+        return  name.name;
+        });
+        console.log(name);
+
+        // Question: Write a script that finds the longest string in an array of strings. Use the reduce function to achieve this.
+        const string = ["apple", "banana", "cherry", "blueberry"];
+        let longest = "";
+        let ans = string.reduce((c,n)=>{
+          if(n.length > c.length){
+            return n;
+       }else{
+        return c ;
+       }
+        });
+        console.log(ans);
+
+
+        string.forEach((l)=>{
+          if(l.length>longest.length){
+            longest = l;
+          }
+         });
+        console.log(longest);
+
+
+        // Given an array of numbers, return the product of all the numbers using the reduce function.
+
+         const number = [1, 2, 3, 4, 5];
+         let product = 1;
+         let returns = number.reduce((a,n)=>{
+          return a*n;
+         });
+         console.log(returns);
+
+         number.forEach((n)=>{
+          product*=n;
+        });
+        console.log(product);
+
+        // Given an array of objects representing employees, each with a name and salary property, 
+        // return an array of names of employees whose salary is above the average salary. 
+        // Use array methods like map, reduce, and filter.
+        // Output: ["Bob", "Charlie"];
+
+        const employees = [
+          { name: "Alice", salary: 50000 },
+          { name: "Bob", salary: 60000 },
+          { name: "Charlie", salary: 70000 },
+          { name: "Dave", salary: 40000 },
+        ];
+
+        let averagesalary = employees.reduce((a,s)=>{
+          a+employees.salary;
+        },0);
+        console.log(averagesalary);
+
+        let filtersalary = employees.filter((s)=>{
+         return s.salary>averagesalary;
+        });
+        console.log(filtersalary);
+
+        let highsalary = employees.map(()=>{});
+
+
+        // Add a button to the DOM that, when clicked, changes the background color of all paragraphs (<p>) to a random color.
+          function rendomcolor(){
+            let letter = "0123456789ABCDEF";
+            let color = "#";
+          for(let i=0; i<6; i++){
+            color+=letter[(Math.floor(Math.random() * 16))]
+          }
+          return color;
+          }
+          let button = document.getElementById("btn").addEventListener('click',()=>{
+           document.querySelectorAll("p").forEach(c => {
+            c.style.backgroundColor = rendomcolor();
+           });
+          });
+
+          // Create a button that, when clicked, toggles the visibility of a paragraph (<p>). Use the style.display property to achieve this.
+            let parahide = document.getElementById("hide");
+            let btnhide = document.getElementById("hidebtn").addEventListener('click',()=>{
+              parahide.style.display = "none";
+            });
+
+            const people = [
+                { name: 'Alice', age: 21 },
+                { name: 'Bob', age: 25 },
+                { name: 'Charlie', age: 21 },
+                { name: 'Dave', age: 25 }
+              ];
+
+              // Output:
+              // {
+             //   21: [{ name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 }],
+             //   25: [{ name: 'Bob', age: 25 }, { name: 'Dave', age: 25 }]
+            // };
+
+            let ages = people.reduce((a, g) => {
+              if (!a[g.age]) {
+             a[g.age] = [];
+             }
+             a[g.age].push(g); 
+             return a;
+            }, {});
+            console.log(ages);
+
+             // Create a list of items using HTML and JavaScript. When any list item is clicked, an alert should display the text of that item. Use event delegation to handle the click event.
+             document.getElementById("it1").addEventListener('click',(e)=>{
+             let alerts = alert("item1");
+             });
+             document.getElementById("it2").addEventListener('click',(e)=>{
+             let alerts = alert("item2");
+             });
+             document.getElementById("it3").addEventListener('click',(e)=>{
+             let alerts = alert("item3");
+             });
+             document.getElementById("it4").addEventListener('click',(e)=>{
+             let alerts = alert("item4");
+             });
+
+             const objectA = { name: "Alice"};
+             const objectB = { age: 30, city: "New York" };
+             // Output: { name: "Alice", age: 30, city: "New York" }
+
+             let marge = {...objectA,...objectB};
+             console.log(marge);
+
+             
+
+
+             
+
+
+
+             
+
+
+
+
+
+            
+
+
+
+
+              
+
+
+
+
+  
+
+
+
+
+
+
+         
+
+
+
+
+
+
+
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

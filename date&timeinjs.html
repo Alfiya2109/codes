@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date and time in js</title>
+</head>
+<body>
+    <script>
+        //simple date time getting
+//             let Current = new Date();
+//    console.log("current date and time is " + Current);
+
+//common date and time:
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth()+1;
+let day = date.getDay();
+let time = date.getTime();
+let minutes = date.getMinutes();
+let secound = date.getSeconds();
+ 
+document.write(`year:${year},<br>date:${date},<br>month:${month},<br>day:${day},<br>time:${time},<br>minutes${minutes},<br>secound:${secound} `);
+
+
+
+    </script>
+</body>
+</html>

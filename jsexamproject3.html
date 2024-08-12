@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Budget</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form id="budgetform" class="row g-3" onsubmit="submitForm(event)">
+                    <div style="text-align:center ;">
+                        <span class="error"></span>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="subject">Subject : </label>
+                        <input class="form-control" type="text" name="subject" id="subject" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="budget">Budget : </label>
+                        <select name="budget" id="budget" class="form-select">
+                            <option value="0" selected>select budget</option>
+                            <option value="budget1">Budget 1</option>
+                            <option value="budget2">Budget 2</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="budgetamt">Budget Amt : </label>
+                        <input class="form-control" type="text" name="budgetamt" id="budgetamt" required readonly>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="remaining">Remaining Budget : </label>
+                        <input class="form-control" type="text" name="remaining" id="remaining" readonly>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="amount">Amount : </label>
+                        <input class="form-control" type="text" name="amount" id="amount" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="col-form-label" for="balance">Balance : </label>
+                        <input class="form-control" type="text" name="balance" id="balance" readonly>
+                    </div>
+                    <div class="col-12">
+                        <input class="form-control btn btn-success" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <span>No. Budgets: <span id="nfe">0</span></span>
+                <table class="display table w-100" id="viewtable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Budget</th>
+                            <th>Amount</th>
+                            <th>Balance</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            let budgets = {
+                budget1: 5000,
+                budget2: 10000
+            };
+            
+
+            let budgetform = document.getElementById("budgetform");
+            let budget = document.getElementById("budget");
+            let budgetamt = document.getElementById("budgetamt");
+            let remaining = document.getElementById("remaining");
+            let amount = document.getElementById("amount");
+            let balance = document.getElementById("balance");
+            let nfe = document.getElementById("nfe");
+            let tableBody = document.getElementById("tableBody");
+
+            let totalBudgets = 0;
+
+            budget.addEventListener('change', () => {
+                let budgetSelect = budget.value;
+                if (budgetSelect !== "0") {
+                    budgetamt.value = budgets[budgetSelect];
+                    remaining.value = budgets[budgetSelect];
+                } else {
+
+                    budgetamt.value = "";
+                    remaining.value = "";
+                };
+                updateBalance();
+                
+            });
+
+            
+
+            amount.addEventListener('input', updateBalance);
+
+            budgetform.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                let subject = document.getElementById("subject").value;
+                let selectedBudget = budget.options[budget.selectedIndex].text;
+                let amountValue = parseFloat(amount.value);
+                let balanceValue = parseFloat(balance.value);
+
+                if (!isNaN(amountValue) && !isNaN(balanceValue)) {
+                    totalBudgets++;
+
+                    let row = tableBody.insertRow();
+                    row.innerHTML = `
+                    
+                        <td>${subject}</td>
+                        <td>${selectedBudget}</td>
+                        <td>${amountValue.toFixed(2)}</td>
+                        <td>${balanceValue.toFixed(2)}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
+                    `;
+
+
+
+                    nfe.textContent = totalBudgets;
+
+
+                    budget.value = "0";
+                    remaining.value = "";
+                    amount.value = "";
+                    balance.value = "";
+                    budgetamt.value = "";
+                    document.getElementById('subject').value = "";
+                }
+            });
+
+            window.deleteRow = (button) => {
+                let row = button.closest('tr');
+                row.remove();
+                totalBudgets--;
+                nfe.textContent = totalBudgets;
+            };
+
+            
+
+            function updateBalance() {
+                let remainingValue = parseFloat(remaining.value);
+                let amountValue = parseFloat(amount.value);
+                if (!isNaN(remainingValue) && !isNaN(amountValue)) {
+                    balance.value = (remainingValue - amountValue).toFixed(2);
+                } else {
+                    balance.value = "";
+                };
+            };
+
+        });
+
+    </script>
+</body>
+
+</html>

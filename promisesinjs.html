@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .resole{
+            color: green;
+        }
+        .reject{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let count = false;
+        let promise = new Promise((res,rej)=>{
+if(count){
+    return res() ;
+}else{
+    return rej() ;
+}
+ });
+
+        promise.then(()=> {
+            console.log("resolve");
+        }).catch(()=>{
+            console.log("reject");
+
+        });
+    </script>
+</body>
+</html>     

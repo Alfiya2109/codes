@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toc game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: pink;
+            text-align: center;
+        }
+
+        .containeer{
+            height: 70vh;
+            display: flex;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game{
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5vmin;
+
+        }
+
+        .box{
+            height: 18vmin;
+            width: 18vmin;
+            border: none;
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 6px 3px pink ;
+            font-size: 70px;
+            color: blueviolet;
+        }
+        #reset-butt{
+            padding: 3px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            
+        }
+
+        #reset-butt:hover{
+            background-color: purple;
+            color: pink;
+        }
+
+        #new-butt{
+            padding: 3px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            border: none;
+            margin-top :10px; 
+            
+        }
+
+        #new-butt:hover{
+            background-color: purple;
+            color: pink;
+        }
+
+        #mag{
+            font-size: 30px;
+        }
+
+        .hide{
+            display: none;
+        }
+
+        .mag-con{
+           /* height: 30vh;
+           justify-content: center;
+           align-items: center;
+           display: flex;
+           flex-direction: column;
+           gap: 4px ; */
+
+        }
+            
+        
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="mag-con hide">
+            <p id="mag" >Winner</p>
+            <button id="new-butt">New Game</button>
+
+
+        </div>
+        
+        <h1>Tic Tac Toc</h1>
+        <div class="containeer">
+        <div class="game">
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+            <button class="box"></button>
+        </div>
+        
+        
+    </div>
+    <button id="reset-butt">Reset Game</button>
+
+
+    </main>
+    <script>
+        //all class and id used in boby
+
+        let boxes = document.querySelectorAll(".box");
+        let resetbut = document.querySelector("#reset-butt");
+        let newbutt = document.querySelector("#new-butt");
+        let massage = document.querySelector("#mag");
+        let magcontaineer = document.querySelector(".mag-con");
+
+        let turn0 = true;
+
+        //winner partern
+        let winer = [
+            [0,1,2],
+            [0,3,6],
+            [0,4,8],
+            [1,4,7],
+            [2,5,8],
+            [2,4,6],
+            [3,4,5],
+        ];
+
+
+        //check which button is clicked
+        boxes.forEach(box => {
+    box.addEventListener("click", () => {
+        console.log("box was clicked");
+        if (turn0) {
+            box.innerText = "A";
+            turn0 = false;
+        } else {
+            box.innerText = "S";
+            turn0 = true;
+        }
+        box.disabled = true;
+
+        checkwinner();
+    });
+});
+
+
+      
+ 
+      //disabled buttons
+ let disabled =()=>{
+    for(box of boxes){
+        box.disabled=true;
+    }
+ }
+
+ let enable = ()=>{
+    for(box of boxes){
+        box.disabled= false;
+        box.innerText="";
+    }
+ }
+    
+ //reset button
+ let reset =()=>{
+    turn0 = true;
+    enable();
+    magcontaineer.classList.add("hide");
+
+
+ };
+
+
+      
+     //show who is winner
+  let showwinner=()=>{
+    massage.innerText=`winner!`;
+    magcontaineer.classList.remove("hide");
+    disabled();
+    
+
+  }
+
+
+
+     //check who is winner
+ let checkwinner = ()  =>{
+    for(win of winer){
+    let postion1 =boxes[win[0]].innerText;
+
+    let postion2 =boxes[win[1]].innerText;
+
+    let postion3 =boxes[win[2]].innerText;
+
+    if(postion1 !== "" && postion2 !== "" && postion3 !== ""){
+        if(postion1 === postion2 && postion2 ===postion3){
+            console.log("winner",postion1);
+            showwinner();
+        }
+    }
+    
+
+    }
+ };
+
+
+    //reset and clear game
+ newbutt.addEventListener("click",reset);
+ resetbut.addEventListener("click",reset);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

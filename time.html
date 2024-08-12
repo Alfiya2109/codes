@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let count = 0 ;
+
+         
+        //   let time =  setInterval(()=>{
+        //         console.log("Reapeting Message ");
+        //     },2000);
+
+        // setTimeout(()=>{
+        //     clearInterval(time);
+        //     if(count<=5){
+        //         console.log("stop");
+        //     };
+        // },10000);
+
+
+        const users = [
+         { name: 'Alice', age: 24 },
+         { name: 'Bob', age: 31}, 
+         { name: 'Charlie', age: 3 } 
+        ];
+
+    //   let name =   users.map((a)=>{
+
+        // return ` '"hello,${a.name} !'`
+    //  });
+    //  console.log(name);
+
+    //   let len = users.map((name)=>{
+
+    //     // return name.name
+    //     return name.name.length
+
+
+    //     });
+    //     console.log(len);
+
+    //     let date = new Date();
+
+    //     let year = date.getFullYear();
+    //   let years =  users.map((a)=>{
+            
+    //     return year - a.age
+        
+
+            
+    //     });
+    //     console.log(years);
+
+        
+
+    //   let news =  users.filter((name)=>{
+
+        //  return  name.name.toUpperCase();
+        // return name.age>10;
+
+        // });
+
+        // console.log(news);
+
+
+
+        // users.forEach((name)=>{
+
+        //     if(name.age>=25){
+        //         console.log(name.name)
+        //     }
+
+        // });
+
+
+        // users.forEach((is)=>{
+
+        //     if(is.age>18){
+        //         is.isAdult = true ;
+        //     }else{
+            
+        //         is.isAdult = false;
+        //     };
+
+        // });
+
+        // console.log(users);
+
+        let arr = [1,2,3,4,5];
+        let big = arr[0];
+        
+    
+        for(let i of arr){
+            if(i>big){
+                 big = i;
+            }
+        };
+        // console.log(big);
+
+
+        const products = [
+  { name: 'Laptop', price: 1200 },
+  { name: 'Smartphone', price: 800 },
+  { name: 'Tablet', price: 600 }
+];
+
+let hig = products[0]
+        function findMostExpensiveProduct(){
+
+            for (let i of products) {
+
+                if(i>price){
+                    hig = i ;
+                    
+                }
+            }
+        };
+        // console.log(hig);
+
+
+        let num = [1,2,3,4,5,6];
+        let arrs = [];
+
+        for(let i = 0; i<num.length; i++){
+            if(num[i]%2===0){
+            arrs.push((num[i]));
+            
+            }
+
+        };
+        // console.log(arrs);
+        
+
+     let res =   num.filter((even)=>{
+        if(even%2==0){
+            // console.log(even) ;
+        };
+    });
+        // console.log(res);
+
+        const numbers = [2, 4, 6, 8, 10];
+
+        let ress = numbers.reduce((add,sum)=>{
+            return add + sum ;
+        });
+        // console.log(ress);
+// Expected output: [4, 8, 12, 16, 20]
+
+// let newarr = [];
+
+ let a =  numbers.map( num=>num*2);
+//  console.log(a);
+
+const words = ['Hello', 'world', 'from', 'JavaScript'];
+// Expected output: 'Hello world from JavaScript'
+
+let b = words.reduce((join,add)=>{
+    return join + ' ' +  add ;
+});
+// console.log(b);
+
+
+const orders = [
+  { id: 1, product: 'Phone', price: 699, status: 'shipped' },
+  { id: 2, product: 'Laptop', price: 1299, status: 'pending' },
+  { id: 3, product: 'Tablet', price: 499, status: 'shipped' },
+  { id: 4, product: 'Smartwatch', price: 199, status: 'delivered' }
+];
+
+let status= orders.filter (s=> s.status==="shipped");
+// console.log(status);
+
+let price = status.map(p => p.price)
+// console.log(price);
+
+let reduce = price.reduce(r => r+r)
+// console.log(reduce);
+
+
+
+function calculateArea(width,height){
+    width = 20 ;
+    height = 50 ;
+    console.log(width*height);
+
+};
+// calculateArea();
+
+function findMaxNumber(numbers){
+
+for(let i=0; i<numbers.length; i++){
+    if(i>numbers){
+        return numbers ;
+    }
+
+}
+};
+    
+let maxNumber = findMaxNumber( [10, 5, 20, 8, 15]);
+console.log("Largest number:", maxNumber); // Output: Largest number: 20h
+
+let promise = new Promise((reslove,reject)=>{
+    
+
+    if(reslove){
+        console.log("this message complete")
+    }else{
+        console.log("this message is not complete")
+
+    }
+});
+
+
+function sumNumbers(...number){
+    let total = number.reduce((sum,add)=>sum+add,0);
+
+    return total;   
+
+}
+let result =sumNumbers(1,2,3);
+// console.log(result);
+
+let nums = true;
+let count = new Promise((reslove,reject)=>{
+    if(nums){
+         reslove();
+    }else{
+         reject();
+    }
+});
+
+count.then(function(){
+    // console.log("done");
+})
+.catch(function(){
+    // console.log("reject")
+
+});
+
+
+try{
+
+    console.log(y)
+}
+catch(error){
+    // console.error("error",error)
+}
+finally{
+    // console.log("i am finall")
+};
+
+function add(a,b){
+    try{
+        if(b===0){
+            // console.log(b);
+            return b;
+        }
+    }catch(error){
+        console.error("Error",error);
+    }
+};
+
+// console.log((10,5));
+// console.log(add(5,0));
+
+let newarr = [1,2,3,4,5,6];
+let height = newarr[0];
+
+for(let i of newarr){
+    if(i>height){
+        height = i;
+    }
+}
+console.log(height);
+
+
+let uniqu = [1,2,2,3,5,4,4];
+let nuires = [...new Set(uniqu)];
+console.log(nuires);
+
+const employees = [
+  { name: 'Alice', department: 'Engineering', salary: 70000 },
+  { name: 'Bob', department: 'Sales', salary: 60000 },
+  { name: 'Charlie', department: 'Engineering', salary: 80000 },
+  { name: 'David', department: 'Marketing', salary: 50000 }
+];
+
+// Expected output:
+// [
+//   { name: 'Alice', salary: 70000 },
+//   { name: 'Charlie', salary: 80000 }
+// ]
+
+let fil = employees.filter(f => f.department==="Engineering");
+console.log(fil);
+
+let ns = fil.map(employees => ({name:employees.name,salary:employees.salary}));
+console.log(ns);
+
+let p = fetch("https://jsonplaceholder.typicode.com/posts/");
+p.then((Response)=>{
+    console.log(Response.ok);
+    console.log(Response.status);
+
+    return Response;
+}).then((value)=>{
+    console.log(value);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+        
+        
+    
+    </script>
+</body>
+</html>

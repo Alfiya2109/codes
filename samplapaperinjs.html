@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    
+    .product {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    
+    .product img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    
+    .forScroll {
+      overflow-y: scroll;
+    }
+    
+    #cart {
+      width: 100%;
+    }
+    
+    #cart th,
+    #cart td {
+      padding: 10px;
+    }
+    
+    #empty-cart {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>  
+  <section>
+    <h3 class="text-center">Name Of Examinees</h3>
+    <hr>
+    <div class="container mt-4">
+      <div class="row">
+        <label class="col-2 col-form-label font-weight-bold" for="coupon-code">Add Coupon :</label>
+        <div class="col-3">
+          <input type="text" class="form-control" id="coupon-code" placeholder="Enter Coupon code" />
+        </div>
+        <div class="col-3">
+          <input type="text" class="form-control" id="coupon-percentage" placeholder="Enter Coupon percentage" />
+        </div>
+        <div class="col-2">
+          <button class="btn btn-secondary">Add Coupon</button>
+        </div>
+        <div class="col-2">
+          <button class="btn btn-success" id="coupon-added" disabled>
+            Coupon added!!
+          </button>
+        </div>
+      </div>
+      <hr />
+  
+      <div class="row" style="display: flex">
+        <div class="col-6" style="border-right: 2px solid #eee">
+          <form id="product-form" autocomplete="off">
+            <label class="font-weight-bold" for="product-image" class="font-weight-bold">Product Image:</label>
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-6" style="height: 135px; width: 200px">
+                <img src="" id="preview" style="width: 100%; height: 100%; object-fit: contain" />
+              </div>
+              <div class="col-6">
+                <input type="file" class="form-control" id="product-image"/>
+              </div>
+            </div>
+            <div class="form-group mt-2">
+              <label class="font-weight-bold" for="product-name">Product Name:</label>
+              <input type="text" class="form-control" id="product-name" placeholder="Enter Product Name" />
+            </div>
+            <div class="form-group mt-2">
+              <label class="font-weight-bold" for="product-description">Product Description:</label>
+              <textarea class="form-control" id="product-description" placeholder="Enter Product Description"></textarea>
+            </div>
+            <div class="form-group mt-2">
+              <label class="font-weight-bold" for="product-price">Product Price:</label>
+              <input type="text" class="form-control" id="product-price" placeholder="Enter Product Price" />
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">
+              Add to List
+            </button>
+          </form>
+        </div>
+        <div class="col-6 forScroll mt-1" style="height: 21rem; position: relative">
+          <table id="cart" class="table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+              <tr id="empty-cart">
+                <td colspan="5" class="text-center">Your cart is empty</td>
+              </tr>
+            </tbody>
+            <tfoot id="carttrow" style="border: 2px solid;">
+              <tr>
+                <td colspan="4">Total Amount</td>
+                <td id="total"></td>
+              </tr>
+              <tr>
+                <td colspan="3">Apply Code</td>
+                <td colspan="2">
+                  <select id="couponselect" class="form-select">
+                    <option>Select Coupon</option>x
+                    <option value="13">FASTP</option>
+                    <option value="20">TAKEF</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4">Final Amount <a href="https://www.omnicalculator.com/finance/percentage-discount" target="_blank">check calculation here</a></td>
+                <td id="finalPrice"></td>
+              </tr>
+              <tr>
+                <td colspan="5" class="text-center">
+                  <a href="../shopping/ai.html" class="btn btn-primary" id="toPayment">Payble Amount<span id="finalPrice"></span></a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+      <hr />
+      <div class="gallery row" id="products">
+        <!-- Product gallery items -->
+      </div>
+    </div>
+  </section>
+
+  <script>
+    
+
+    
+  </script>
+</body>
+</html>

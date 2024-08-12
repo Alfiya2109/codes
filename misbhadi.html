@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unclickable No Button</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .buttons-container {
+            position: relative;
+            width: 300px;
+            height: 100px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        #noBtn {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">Are you pura pagal</div>
+    <div class="buttons-container">
+        <button class="button" id="yesBtn">Yes</button>
+        <button class="button" id="noBtn">No</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noBtn');
+        const yesButton = document.getElementById('yesBtn');
+        const container = document.querySelector('.buttons-container');
+
+        noButton.addEventListener('mouseenter', () => {
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = noButton.getBoundingClientRect();
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+        yesButton.addEventListener('click',()=>{
+            alert('i knew it');
+        });
+        
+    </script>
+</body>
+</html>

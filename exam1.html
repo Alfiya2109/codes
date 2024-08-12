@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Dropdown Example</title>
+</head>
+<body>
+
+    <h2>Simple Dynamic Dropdowns</h2>
+    
+    <form>
+        <label for="state">state:</label>
+        <select id="state" name="state" onchange="populateCities()">
+            <option value="">Select State</option>
+            <option value="MAHA">Maharashtra</option>
+            <option value="UP">Uttar Pradesh</option>
+	    <option value="MP">Madhya Pradesh</option>
+           
+        </select>
+
+        <br><br>
+
+        <label for="city">City:</label>
+        <select id="city" name="city">
+            <!-- Cities will be dynamically populated based on the selected state -->
+        </select>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+
+        function populateCities(){
+            let citys = document.getElementById('city');
+            let states = document.getElementById('state');
+
+              citys.innerHTML = '<option vlaue= ""> Select City</option>' ;
+
+              let statevalue = states.value ;
+
+              if(statevalue === "MAHA"){
+                addOption(citys,'Thane');
+                addOption(citys,'Mumbai');
+                addOption(citys,'Pune');
+            }else if (statevalue === "UP"){
+                addOption(citys,'Agra');
+                addOption(citys,'Oudh');
+            }else if(statevalue === "MP"){
+                
+                addOption(citys,'Bhopal');
+                addOption(citys,'Inder');
+
+
+            }};
+
+            function addOption(select,value){
+
+                let option = document.createElement("option");
+                option.value = value ;
+                option.text = value ;
+
+                select.add(option);
+
+
+            };
+    </script>
+	
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+            padding: 40px;
+            /* justify-content: 34px auto; */
+            border: 30px double black;
+            margin: 50px auto;
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function:ease-in-out;
+            transition-delay: 1s;
+
+
+        }
+        div:hover{
+            background-color: purple;
+            color: white;
+            font-size: 50px;
+        }
+        div:active{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+      its me!
+    </div>
+</body>
+</html>

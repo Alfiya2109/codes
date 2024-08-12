@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+
+
+     #password-toggle{
+        cursor: pointer;
+     }
+
+     body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[name="display"] {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+button:active {
+    background-color: #ccc;
+}
+
+button:nth-child(4n) {
+    background-color: #ff9500;
+    color: white;
+}
+
+button:nth-child(4n):hover {
+    background-color: #ffb84d;
+}
+
+button:nth-child(4n):active {
+    background-color: #e68a00;
+}
+
+
+     
+    
+
+
+     
+    </style>
+</head>
+<body>
+<!-- Q20 -->
+    <label for="password">password : </label>
+    <input type="password" name="password" id="password" placeholder="Enter your password ! ">
+    <span id="password-toggle" onclick="passwordtoggle()"><i class="fa-solid fa-eye"></i></span>
+
+
+    <!-- Q21 -->
+
+    <div class="calculator">
+        <input type="text" name="display" class="result" readonly>
+
+        <div class="buttons">
+            <button onclick="buttonClick('7')">7</button>
+            <button onclick="buttonClick('8')">8</button>
+            <button onclick="buttonClick('9')">9</button>
+            <button onclick="buttonClick('/')">/</button>
+            <button onclick="buttonClick('4')">4</button>
+            <button onclick="buttonClick('5')">5</button>
+            <button onclick="buttonClick('6')">6</button>
+            <button onclick="buttonClick('+')">+</button>
+            <button onclick="buttonClick('1')">1</button>
+            <button onclick="buttonClick('2')">2</button>
+            <button onclick="buttonClick('3')">3</button>
+            <button onclick="buttonClick('-')">-</button>
+            <button onclick="buttonClick('0')">0</button>
+            <button onclick="buttonClick('00')">00</button>
+            <button onclick="buttonClick('*')">*</button>
+            <button onclick="buttonClick('.')">.</button>
+            <!-- <button onclick="buttonClick('=')">+</button> -->
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calcuatute()">=</button>
+            
+
+        </div>
+
+       
+
+       
+
+    </div>
+    <script>
+
+        // Q1  prime numbers
+//         let user1 = parseFloat(prompt("Enter your first number: "));
+// let user2 = parseFloat(prompt("Enter your second number: "));
+
+// function isPrime(num) {
+//     if (num <= 1) return false;
+
+//     for (let i = 2; i <= Math.sqrt(num); i++) {
+//         if (num % i === 0) {
+//             return false;
+
+
+//         }
+//     }
+
+//     return true;
+// };
+
+// console.log(`These are the prime numbers between ${user1} and ${user2}:`);
+
+
+// for (let i = user1; i <= user2; i++) {
+//     if (isPrime(i)) {
+//         console.log(i);
+
+//     };
+// };
+
+
+// Q2
+
+// let usser = parseFloat(prompt("enter a distance in kilometers. "));
+
+// let ConversionKilometers =  0.621371;
+
+// let result = usser * ConversionKilometers;
+
+// console.log(`this is your kilometers ${usser}convert into ConversionKilometers : ${result} `);
+
+// Q3
+
+// let usser = parseFloat(prompt(" enter a number value for which you want to find the square root."));
+
+// let result = Math.sqrt(usser);
+
+// console.log(` The square root of ${usser} is ${result}`);
+
+
+// Q4
+// this question is remaining 
+
+
+
+// Q5
+
+// let  a = parseFloat = (prompt("enter a number 1 ."));
+// let  b = parseFloat = (prompt("enter b number 2 ."));
+// let  c = parseFloat = (prompt("enter c number 3 ."));
+
+// //using if statement 
+// let largestnumber;
+// if(a>b && a>c){
+//     console.log(`a is  the largest among these three a = ${a}`);
+// }else if(b>a && b>c){
+//     console.log(`b is  the largest among these three b = ${b}`);
+// }else{
+//     console.log(`c is  the largest among these three c =  ${c}`);
+// };
+
+// // Math.max
+
+// // let mathmax =  Math.max(a,b,c);
+// console.log(`the largest among these three is ${mathmax} `);
+
+
+// Q6
+// this question is remaining 
+
+
+// Q7
+
+// function vowels(string){
+//     let count = 0 ;
+
+//     let lowercase  = string.toLowerCase();
+
+//     for(let i = 0 ; i <string.length ; i++ ){
+//         if('aeiou'.includes(lowercase[i])){
+
+
+
+//             count++;
+//         };
+//     }
+    
+//     return count ;
+// };
+
+
+// let useer = prompt("enter your string ! ");
+
+// let result = vowels(useer);
+
+// console.log(`the number of vowels in this string ${useer} is ${result}`);
+
+// Q8
+
+// let person = { name: 'Johnson', age: 26 };
+// let  student = { gender: 'male' };
+
+// let margewithObjectassign = Object.assign({} , person ,student);
+
+// console.log('using object.aasign methods : ' , margewithObjectassign)
+
+// let SpreadOperator = {...person , ...student}
+
+// console.log('using SpreadOperator methods : ' , SpreadOperator);
+
+
+// Q9
+// this question is remaining 
+
+// Q10
+
+// let  array = [1, 3, 5, 7] ;
+// let object =  {x: 12, y: 8};
+
+// let arraypush = [...array];
+// arraypush.push(object);
+// console.log('using push : ' , arraypush);
+
+
+// let arraysplice = [...array];
+// arraysplice.splice(arraysplice.length , 0 , object);
+// console.log('using splice : ' , arraysplice);
+
+// let SpreadOperator = [...array , object];
+// console.log('using SpreadOperator : ' ,  SpreadOperator);
+
+// Q11
+
+// let str = '             helloWorld    ';
+// let usewithsplitandjoin = str.split(' ').join('  ');
+// console.log('using split and join  : ' , usewithsplitandjoin);
+
+// let usewithRegularExpression = str.replace(/\s/g, '');
+// console.log('using Regular Expression : ' , usewithRegularExpression);
+
+// Q12
+// this question is remaining 
+
+
+// Q13
+// this question is remaining 
+
+
+// Q14
+
+// let string = "hello world";
+
+// let startwithchar = "hello";
+// let endwithchar = "world";
+
+// let startandendwhitchar = string.startsWith(startwithchar) && string.endsWith(endwithchar);
+// console.log('using start and end methods : ' , startandendwhitchar);
+
+
+
+
+// let regexPattern = new RegExp(`^${startwithchar}.*${endwithchar}$`);
+// let test = regexPattern.test(string);
+// console.log(`using regular expression: `, test);
+
+
+// Q15
+
+// function leapyear (year){
+//     if((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)){
+
+//         return true;
+//     }else{
+//         return false;
+//     };
+// };
+
+// function newdate(year){
+//     let date = new Date(year,1,29);
+//     return date.getDate()===29;
+// };
+
+
+
+
+
+
+// let usser = parseFloat(prompt("enter you date and check its leapyear aur not ! "))
+// let leapyeartest = leapyear(usser);
+// let newdatetest = newdate(usser);
+
+// console.log(`useing leapyear ${leapyeartest} : useing new date ${newdatetest}`);
+
+
+// Q16
+
+// this question is remaining 
+
+// Q17
+
+// let array1 = [1, 3, 4, 5, 6, 8];
+// let array2 = [1, 3, 4, 5, 6, 8];
+
+// function compare (arr1,arr2){
+//     if(arr1.length !== arr2.length){
+//         return false;
+//     };
+
+//     for(let i = 0 ; i<arr1.length ; i++){
+//         if(arr1[i] !== arr2[i]){
+//             return false;
+
+//         }
+
+//     }
+    
+//     return true;
+// };
+
+// let result = compare(array1 ,array2);
+
+// if(result){
+//     console.log("arrays are same");
+// }else{
+//     console.log("arrays are not same")
+// };
+
+// Q18
+
+// this question is remaining 
+
+// Q19
+
+// function validateemail(email){
+//     let pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+//     return pattern.test(email);
+    
+// }
+
+
+// let emailaddress = "alfiya@123.com";
+
+// let result = validateemail(emailaddress);
+
+// if(result){
+//     console.log(`this email ${emailaddress} is vaild ! `);
+// }else{
+//     console.log(`this email ${emailaddress} is not vaild ! `);
+// };
+
+// Q20
+
+// function passwordtoggle() {
+//     let passwordinput = document.getElementById("password");
+
+//     if (passwordinput.type === "password") {
+
+//         passwordinput.type = "text";
+
+//     } else {
+//         passwordinput.type = "password";
+//     }
+// };
+
+
+
+
+// Q21
+// function buttonClick(value) {
+//     document.getElementsByClassName('result')[0].value += value;
+// }
+
+// function clearDisplay() {
+//     document.getElementsByClassName('result')[0].value = "";
+// }
+
+
+// function calcuatute() {
+//     try {
+//         let result = eval(document.getElementsByClassName("result")[0].value);
+//         document.getElementsByClassName("result")[0].value = result;
+//     } catch (error) {
+//         document.getElementsByClassName("result")[0].value = "Error";
+//     }
+// };
+
+
+// const users = [ { name: 'Alice', age: 24 },
+//                 { name: 'Bob', age: 27 }, 
+//                 { name: 'Charlie', age: 30 } ];
+// console.log(users);
+
+// users.forEach ((value)=>{
+
+//     if(value.age > 25 ){
+//         console.log(value.name);
+//     };
+
+// });
+
+
+function countvowels(string){
+
+    let vowels = 0 ;
+
+    for(let i = 0 ; i < string.length ; i++){
+
+        let lowercase = string.toLowerCase();
+
+        if(''){
+            vowels++;
+        };
+    };
+
+    return vowels;
+};
+
+let user = prompt("enter your string ! ");
+
+let result = countvowels(user);
+
+console.log(`this is your string ${user} and there includes vowels ${result}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

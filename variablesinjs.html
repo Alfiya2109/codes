@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variables</title>
+</head>
+<body>
+     
+<button id="btn">click me</button>
+<div id="dt"></div>
+
+    <script>
+
+        let a = document.getElementById('btn');
+        a.addEventListener('click',()=>{
+            let date = new Date();
+            let string = date.toLocaleString();
+             let timedate = document.getElementById('dt');
+            timedate.textContent = `current date and time ${string}`;
+         });
+    //          //var
+    //         var name="alfiya";
+
+    //         //let
+    //         let age=10;
+
+    //          //let
+    //         let names="khan";
+
+    //         //const
+    //         const me = "saima";
+    //         // me= "kh";
+            
+
+    //     age=5;
+
+    //    console.log(age);
+    //    console.log(name);
+    // //    document.write(age);
+    //    document.write(names);
+    //    console.log(me);
+
+
+
+       
+
+
+
+
+    </script>
+</body>
+</html>

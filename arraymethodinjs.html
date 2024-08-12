@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array method in js</title>
+</head>
+<body>
+    <script>
+        
+    const users = [ 
+    { name: 'Alice', age: 24 }, 
+    { name: 'Bob', age: 27 }, 
+    { name: 'Charlie', age: 30 } 
+];
+
+// Question: Use forEach to log the names of all users who are older than 25.
+
+users.forEach((use)=>{
+    if(use.age>25){
+        console.log(use.name);
+    }
+});
+
+// Question: Use forEach to add a new property isAdult to each user object, which is true if the user is 18 or older, and false otherwise.													
+
+ users.forEach((isa)=>{
+    if(isa.age>18){
+        isa.isAdult = true;
+    }else{
+        isa.isAdult = false;A
+    }
+
+});  
+console.log(users);
+
+// Question: Use map to create a new array of user names in uppercase.
+let uppercase = users.map((uper)=>{
+   return uper.name.toUpperCase();
+    
+});
+console.log(uppercase);	
+
+// Question: Use map to create a new array of objects, each containing the user's name and a new property yearOfBirth calculated from their age.												
+
+let date = new Date();
+let year = date.getFullYear();
+let yearOfBirth = users.map((yer)=>{
+    return year - yer.age;
+
+});
+console.log(yearOfBirth);
+
+const users1 = [	
+{ name: 'Alice', age: 24 },		
+{ name: 'Bob', age: 27 },		
+{ name: 'Charlie', age: 30 },		
+{ name: 'David', age: 24 }		
+];
+// Question: Use reduce to calculate the total age of all users.												
+let calculate = users1.reduce((add,sum)=>{
+    return add+sum.age;
+},0);
+console.log(calculate);
+
+
+let ages = users1.reduce((a,g)=>{
+    if(!a[g.age]){
+        a[g.age]=[];
+    }
+    a[g.age].push(g);
+
+    return a;
+},{});
+console.log(ages);
+
+
+
+// const groupedByAge = users.reduce((acc, g) => {
+//     if (!acc[g.age]) {
+//         acc[g.age] = [];
+//     }
+//     acc[g.age].push(g);
+//     return acc;
+// }, {});
+
+// console.log(groupedByAge);
+
+let older = users1.filter((age)=>{
+    if(age.age>=25){
+        console.log(age);
+    }
+});
+
+let nm = users1.filter((start)=>{
+
+ return   start.name.startsWith("C");
+});
+console.log(nm);
+
+
+
+
+
+console.log(a);
+let a = 10;
+
+  </script>
+</body>
+</html>

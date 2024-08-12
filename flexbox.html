@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex box</title>
+    <style>
+        .boxs{
+            width: 800px;
+            height: 300px;
+            border: 2px solid black;
+            margin-top: 50px;
+            margin-left: 50px;
+
+            display: flex;
+            /* flex-direction: row-reverse; */
+            /* justify-content: center; */
+            /* justify-content: flex-start; */
+            /* justify-content: flex-end; */
+            /* justify-content: space-between; */
+            /* justify-content: space-around; */
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+            flex-wrap:wrap-reverse;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            padding: 10px;
+            margin-top: 20px;
+            align-items: center;
+            flex-grow: calc(3);
+
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            padding: 10px;
+            margin-top: 20px;
+            /* flex-grow: calc(2); */
+
+            
+
+            
+
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            padding: 10px;
+            margin-top: 20px;
+            /* flex: shrink 5; */
+
+
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            padding: 10px;           
+             margin-top: 20px;
+
+
+        }
+        .box5{
+            width: 100px;
+            height: 100px;
+            border: 2px solid green;
+            padding: 10px;
+            margin-top: 20px;
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="boxs">
+    <div class="box1">this is box1</div>
+    <div class="box2">this is box2</div>
+    <div class="box3">this is box3</div>
+    <div class="box4">this is box4</div>
+    <div class="box5">this is box5</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <div id="dd"></div><br><br><br>
+
+    <button id="fetchbutton">click</button>
+    <div id="div"></div>
+    <script>
+        let p = fetch('https://jsonplaceholder.typicode.com/users');
+        p.then((Response)=>{
+            return Response.json();
+        }).then((val)=>{
+            console.log(val);
+        });
+
+        document.getElementById('btn').addEventListener('click',()=>{
+             fetch('https://jsonplaceholder.typicode.com/users')
+             .then(Response=> Response.json())
+             .then(data=>{
+                let div = document.getElementById('dd');
+                div.innerHTML = "";
+                let creatul = document.createElement('ol');
+                data.forEach(users => {
+                    let li = document.createElement('li');
+                    li.textContent = users.name;
+
+                    creatul.appendChild(li);
+
+                    
+                });
+
+                div.appendChild(creatul);
+             });
+        });
+
+
+        let api = fetch('https://jsonplaceholder.typicode.com/albums?userId=1');
+        api.then((Response)=>{
+            return Response.json()
+        }).then((value)=>{
+            console.log(value);
+        });
+
+        document.getElementById('fetchbutton').addEventListener('click',()=>{
+            fetch('https://jsonplaceholder.typicode.com/users')
+            .then(Response=>Response.json())
+            .then(data=>{
+                let div = document.getElementById('div');
+                div.innerHTML = '';
+
+                let creatol = document.createElement('ol');
+                data.forEach((username,index)=>{
+                    setTimeout(()=>{
+                    let li = document.createElement('li');
+                    li.textContent = username.username;
+                    creatol.appendChild(li);
+                    },index*1000);
+                });
+                div.appendChild(creatol);
+            });
+        });
+
+
+
+        async function me(){
+            let one = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res(27);
+                },1000)
+             });
+
+             let two = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res(27);
+                },1000)
+               });
+
+             let three = new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res(0);
+                },1000)
+            });
+
+    
+         let result =await Promise.all([one,two,three]);
+         return result;
+
+        };
+        me().then(console.log);
+
+
+        
+
+
+
+    
+
+
+        
+
+
+        
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="creatol"></ol>
+    <script>
+        let api = fetch('https://jsonplaceholder.typicode.com/posts')
+        api.then((res)=>{
+            return res.json()
+        }).then((val)=>{
+            console.log(val);
+        });
+
+    
+      async function creatlistinapi(){
+        try{
+     let aa = await fetch('https://jsonplaceholder.typicode.com/posts');
+     let data =  await aa.json();
+       
+        let ol = document.getElementById('creatol');
+        ol.innerHTML='';
+        data.slice(0,20).forEach(title => {
+            let li = document.createElement('li');
+            li.textContent = title.title;
+            
+            ol.appendChild(li);
+         });
+        
+        }
+        catch(Error){
+
+            console.error("Error",Error);
+        }
+    }
+    creatlistinapi();
+    
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       async function fetchParallelData(){
+        try{
+            let url = ['https://jsonplaceholder.typicode.com/users/1',
+                'https://jsonplaceholder.typicode.com/users/2',
+                'https://jsonplaceholder.typicode.com/users/3'
+            ];
+
+            let fetchdata = await Promise.all(url.map(m=>fetch(m)));
+            let fetchjson = await Promise.all(fetchdata.map(j=>j.json()));
+            console.log(fetchjson);
+        }
+        catch(error){
+            console.error("Error",error);
+        }
+       }
+       fetchParallelData();
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function delayedFetch(){
+             new Promise(res=>setTimeout(res,3000));
+            let fetchapi =  fetch('https://jsonplaceholder.typicode.com/posts');
+            let fetchjson =  fetchapi.json();
+            console.log(fetchjson);
+        }
+        delayedFetch();
+
+    </script>
+</body>
+</html>

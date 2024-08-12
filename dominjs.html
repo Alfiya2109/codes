@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM IN JS</title>
+    <style>
+        h1{
+            color: pink;
+            background-color: blue;
+        }
+
+        .par{
+            color: green;
+            background-color: aqua;
+        }
+
+        .newpar{
+            color: black;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <p class="par">this is me</p>
+
+
+    <h2 class="heading">byyeee</h2>
+
+
+    <h1 id="heading">hello</h1>
+    <p  id="heading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis optio corrupti in autem doloribus corporis, perspiciatis voluptates necessitatibus? Aspernatur, provident reprehenderit. Quidem, molestias quam sit dolor cupiditate aperiam vitae distinctio?</p>
+    <div id="heading">this is pen</div> 
+
+
+    <input type="text">
+    <button id="btt" onclick="clickme()"></button>
+    <script>
+        window.console.log("hello");
+        console.log("hello");
+        window.document
+
+        console.dir(document.body);
+        console.log(document.body);
+
+      let heads=  document.getElementById("heading");
+      console.log(heads);
+
+      let iteams= document.querySelectorAll("heading")
+      console.log(iteams);
+
+
+    let iner1= document.getElementsByTagName("h1")[0].innerText+=" alfiya khan";
+    console.log(iner1);
+
+     let me= iner1+" nice";
+   console.log(me);
+
+
+     let div = document.createElement("div");
+     div.innerHTML="hello";
+
+     document.write(div);
+
+
+    let btt = document.createElement("button");
+    btt.innerText = "click me!";
+
+    btt.style.backgroundColor="red";
+
+    btt.style.color="white";
+
+    document.querySelector("body").prepend(btt);
+
+
+    let see = document.querySelector("p");
+
+    see.innerHTML = "this is blue pen !"
+    console.log(see);
+
+
+    
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

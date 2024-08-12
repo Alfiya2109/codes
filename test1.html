@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- <span id="time">00:00</span> -->
+
+<body>
+    <script>
+        // let time = 0 ;
+        function times(){
+            setInterval(()=>{
+
+                // console.log("this message is done!");
+
+
+            },1000 );
+         };
+         times();
+
+        //  times();
+
+        // let object = {
+        //     name : "ALfiya",
+
+        
+        // };
+        // console.log(object.name);
+
+        let array = [1,2,3,4,5];
+        // for(let i = 0; i; i++){
+        //     console.log(i);
+        // };
+
+        let map = new Map();
+
+        array.forEach((v)=>{
+            console.log(v);
+        }
+    );
+
+    // string: slice,reverse,toupercase,tolowercase,indexof,substring,
+    
+    let string = "khan alfiya";
+    console.log(string.slice(0,4));
+
+    console.log(string.substring(-1,4));
+
+    //operators:arthemetic (+,-,*,/,%),assingment(+=,),logical,increment,decrement
+
+
+    let a = 5;
+    let b = 6;
+    console.log(a%b);
+
+
+    let str = "khan";
+    let reverse = str.split('').reverse().join('');
+    console.log(reverse);
+
+    let arr = [1,2,2,3,4,1];
+    let unique = new Set(arr);
+    let result = [...unique];
+    console.log(result);
+
+    let s = "khan";
+    let palid = s.split('').reverse().join('');
+
+    if(s===palid){
+        console.log("its palid " + s)
+    }else{
+        console.log("its not palid " + s)
+    };
+
+    let strr = "khan";
+    for(let i=0; i<strr.length;i++){
+        let r = strr[i];
+        if(strr.indexOf(r)===strr.lastIndexOf(r)){
+            console.log("non reapeting char is " + r)
+        }
+        break;
+    };
+
+    let strings = "khan";
+    let vowel = ['a','e','i','o','u','A','E','I','O','U']
+
+    let count = strings.split('').filter(f=> vowel.includes(f)).length;
+    console.log(count); 
+        
+
+        
+
+        
+        
+    </script>
+</body>
+</html>
